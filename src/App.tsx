@@ -1,5 +1,6 @@
 import { RouteObject, useRoutes } from "react-router-dom";
 import { Suspense, lazy } from "react";
+import { Loading } from "./components/Loading";
 
 const HomePage = lazy(() => import("./pages/Home"));
 const BookingPage = lazy(() => import("./pages/Booking"));
@@ -16,7 +17,7 @@ function App() {
     },
   ];
   const routes = useRoutes(elements);
-  return <Suspense fallback={<div>Loading...</div>}>{routes}</Suspense>;
+  return <Suspense fallback={<Loading />}>{routes}</Suspense>;
 }
 
 export default App;
